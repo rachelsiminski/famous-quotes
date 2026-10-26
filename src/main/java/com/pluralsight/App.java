@@ -26,9 +26,8 @@ public class App {
         int userChoice = scanner.nextInt();
         scanner.nextLine();
 
-        try {
-            while (userChoice != 0) {
-//                switch (userChoice) {
+        while (userChoice != 0) {
+//           switch (userChoice) {
 //                    case 1 -> System.out.println(quotes[0]);
 //                    case 2 -> System.out.println(quotes[1]);
 //                    case 3 -> System.out.println(quotes[2]);
@@ -42,6 +41,7 @@ public class App {
 //                    default -> System.out.println("Invalid input, please choose 1-10. or enter '0' to quit.");
 //                }
 
+            try {
                 int i = userChoice - 1;
 
                 System.out.println(quotes[i]);
@@ -50,10 +50,12 @@ public class App {
                 System.out.println("Choose another quote from the list, or enter '0' to quit!");
                 userChoice = scanner.nextInt();
                 scanner.nextLine();
+            } catch (Exception e) {
+                // throw new RuntimeException(e);
+                System.out.println("Invalid input. Please enter a number between 1 and 10, or enter 0 to quit.");
+                userChoice = scanner.nextInt();
+                scanner.nextLine();
             }
-        } catch (Exception e) {
-            // throw new RuntimeException(e);
-            e.printStackTrace();
         }
 
         System.out.println("Thanks for joining us today!");
