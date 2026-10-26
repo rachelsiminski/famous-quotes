@@ -20,11 +20,43 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Welcome to Quotesy!");
+        System.out.println("Choose a quote from the list, or enter '0' to quit!");
         System.out.println("Select a quote (1-10): ");
-        String userChoice = scanner.nextLine();;
+        int userChoice = scanner.nextInt();
+        scanner.nextLine();
 
-        for (int i = 0; i < quotes.length - 1; i++) {
+        try {
+            while (userChoice != 0) {
+//                switch (userChoice) {
+//                    case 1 -> System.out.println(quotes[0]);
+//                    case 2 -> System.out.println(quotes[1]);
+//                    case 3 -> System.out.println(quotes[2]);
+//                    case 4 -> System.out.println(quotes[3]);
+//                    case 5 -> System.out.println(quotes[4]);
+//                    case 6 -> System.out.println(quotes[5]);
+//                    case 7 -> System.out.println(quotes[6]);
+//                    case 8 -> System.out.println(quotes[7]);
+//                    case 9 -> System.out.println(quotes[8]);
+//                    case 10 -> System.out.println(quotes[9]);
+//                    default -> System.out.println("Invalid input, please choose 1-10. or enter '0' to quit.");
+//                }
 
+                int i = userChoice - 1;
+
+                System.out.println(quotes[i]);
+                System.out.println();
+
+                System.out.println("Choose another quote from the list, or enter '0' to quit!");
+                userChoice = scanner.nextInt();
+                scanner.nextLine();
+            }
+        } catch (Exception e) {
+            // throw new RuntimeException(e);
+            e.printStackTrace();
         }
+
+        System.out.println("Thanks for joining us today!");
+        scanner.close();
     }
 }
